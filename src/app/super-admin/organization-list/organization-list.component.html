@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <div class="row">
+          <div class="col-md-10">
+            <h4>Organization list</h4>
+          </div>
+          <div class="col-md-2 float-right">
+            <a routerLink="/superAdmin/organization"><i class="fa fa-user-plus  float-right" style="font-size: 30px;"></i></a>
+          </div>
+        </div>
+        <table class="table table-bordered mt-3">
+          <tr>
+            <th>Card No</th>
+            <th>Company Name</th>
+            <th>Email Id</th>
+            <th>Mobile No</th>
+            <th>Created Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let org of getOrgList">
+            <td>{{org.cardNo}}</td>
+            <td>{{org.orgnaziationName}}</td>
+            <td>{{org.email}}</td>
+            <td>{{org.mobileNo}}</td>
+            <td>{{org.createdDate}}</td>
+            <td>Active</td>
+            <td>
+              <div class="row">
+                <div class="col-md-4">
+                  <a><i class="fa fa-eye"></i></a>
+                </div>
+                <div class="col-md-4">
+                  <a routerLink="/superAdmin/editOrganization/{{org._id}}"><i class="fa fa-edit"></i></a>
+                </div>
+                <div class="col-md-4">
+                  <a (click)="deleteOrg(org._id)" routerLink="/superAdmin/organizationList"><i class="fa fa-trash"></i></a>
+                  <!-- <button (click)="deleteOrg(org._id)"><i class="fa fa-trash"></i></button> -->
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

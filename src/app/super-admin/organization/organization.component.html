@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-3">
+        <h1>Add Organization</h1>
+        <div *ngIf="alertSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Success!</strong> Your data successfuly added.
+          <button type="button" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form [formGroup]="organizationForm" (ngSubmit)="organizationData()" class="mt-4">
+          <div class="row">
+            <div class="col-md-6">
+              <input type="text" name="cardNo" formControlName="cardNo" placeholder="Card No." class="form-control mb-3" />
+              <input type="text" name="orgnaziationName" formControlName="orgnaziationName" placeholder="Orgnaziation Name" class="form-control mb-3" />
+              <input type="text" name="adminName" formControlName="adminName" placeholder="Admin Name" class="form-control mb-3" />
+              <input type="text" name="email" formControlName="email" placeholder="Enter email" class="form-control mb-3" />
+              <input type="text" name="password" formControlName="password" placeholder="Enter Password" class="form-control mb-3" />
+              <input type="text" name="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" class="form-control mb-3" />
+              <input type="text" name="mobileNo" formControlName="mobileNo" placeholder="Enter mobile no." class="form-control mb-3" />
+              <input type="text" name="mobileNoAlternate" formControlName="mobileNoAlternate" placeholder="Enter alternate mobile no." class="form-control mb-3" />
+              <input type="text" name="dateOfBirth" formControlName="dateOfBirth" placeholder="Date Of Birth" class="form-control mb-3" />
+              <input type="text" name="localAddress" formControlName="localAddress" placeholder="Enter Local Address" class="form-control mb-3" />
+            </div>
+            <div class="col-md-6">
+              <input type="text" name="permanentAddress" formControlName="permanentAddress" placeholder="Enter Permanent Address" class="form-control mb-3" />
+              <input type="text" name="city" formControlName="city" placeholder="Enter city" class="form-control mb-3" />
+              <input type="text" name="district" formControlName="district" placeholder="District" class="form-control mb-3" />
+              <input type="text" name="state" formControlName="state" placeholder="State" class="form-control mb-3" />
+              <input type="text" name="country" formControlName="country" placeholder="Country" class="form-control mb-3" />
+              <input type="text" name="pinCode" formControlName="pinCode" placeholder="Enter pin code" class="form-control mb-3" />
+              <input type="text" name="firmType" formControlName="firmType" placeholder="Select Firm Type" class="form-control mb-3" />
+              <input type="text" name="description" formControlName="description" placeholder="Description" class="form-control mb-3" />
+              <input type="text" name="gender" formControlName="gender" placeholder="Gender" class="form-control mb-3" />
+              <input type="text" name="firmLogo" formControlName="firmLogo" placeholder="Firm Logo" class="form-control mb-3" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center mt-2">
+              <button type="submit" class="btn btn-primary mb-4" >Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
