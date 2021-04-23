@@ -4,6 +4,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { API_URL, ApiUrl } from '../constant/index';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,12 @@ export class AuthService {
 
   userInfo:BehaviorSubject<any> = new BehaviorSubject(null);
   jwtHelper = new JwtHelperService();
-  constructor(private http: HttpClient) { this.loadUserInfo();}
+
+  get isLoggedIn() {
+    return this.userInfo.asObservable();
+  }
+
+  constructor(private http: HttpClient, private router : Router) { this.loadUserInfo();}
 
   loadUserInfo() {
     const userData = this.userInfo.getValue();
@@ -59,5 +65,10 @@ export class AuthService {
         return false;
       })
     )
+  }
+  logout() {
+    this.userInfo.next(false);
+    localStorage.clear();
+    this.router.navigate(['/authorization']);
   }
 }

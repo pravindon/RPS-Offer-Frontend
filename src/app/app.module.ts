@@ -16,7 +16,8 @@ import { AuthService } from './shared/core/services/auth.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LayoutModule
+    LayoutModule,
+    
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
