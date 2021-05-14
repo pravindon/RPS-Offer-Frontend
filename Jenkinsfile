@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    docker { image 'node:latest' }
-  }
+  agent { label 'slave-02'}
   stages {
     stage('Install') {
       steps { sh 'npm install' }
