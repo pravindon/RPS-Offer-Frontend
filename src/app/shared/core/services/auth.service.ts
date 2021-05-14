@@ -34,14 +34,11 @@ export class AuthService {
           // tokenExpiration : decryptedUser.exp
         }
         this.userInfo.next(data);
-        console.log('Load user info method Data', data);
-        
       }
     }
   }
   userLogin(userPayload: any):Observable<boolean> {
     return this.http.post(ApiUrl.loginUrl + '/', userPayload)
-    // return this.http.post('http://localhost:3000/auth/login/', userPayload)
     .pipe(
       map((value : any) => {
         if(value){
@@ -58,8 +55,6 @@ export class AuthService {
             // tokenExpiration : decryptedUser.exp
           }
           this.userInfo.next(data);
-          console.log('Data testing service', data);
-          
           return true;
         }
         return false;
