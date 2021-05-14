@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'slave-02'}
+  agent { label 'node:latest'}
   stages {
     stage('Install') {
       steps { sh 'npm install' }
